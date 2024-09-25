@@ -1,7 +1,11 @@
 import sys
 from pathlib import Path
 from tabulate import tabulate
-# #! Fibonacci
+import sys
+from pathlib import Path
+from colorama import Fore
+
+#! Exercise 1 - Fibonacci
 
 # def caching_fibonacci(n, cache={0: 0, 1: 1}):
     
@@ -18,7 +22,7 @@ from tabulate import tabulate
 #     return fibonacci(n)
 
 
-# #! Generator
+# #! Exercise 2  - Generator
 # def generator_numbers(text):
 #     symbols = text.split(' ')
 #     float_numbers = []
@@ -39,44 +43,46 @@ from tabulate import tabulate
 
 
 #! Analytic logs
-args = sys.argv
+# args = sys.argv
 
-def load_logs(file_path:str) :
-    path_file = Path(file_path)
-    with open(path_file, 'r') as file:
-        data = (' ').join(file.readlines()).split('\n')
-        return [line.strip() for line in data]
+# def load_logs(file_path:str) :
+#     path_file = Path(file_path)
+#     with open(path_file, 'r') as file:
+#         data = (' ').join(file.readlines()).split('\n')
+#         return [line.strip() for line in data]
     
-def filter_logs_by_level(logs: list, level: str) -> list:
-    filtered_data = [log for log in logs if level in log]
-    return filtered_data
+# def filter_logs_by_level(logs: list, level: str) -> list:
+#     filtered_data = [log for log in logs if level in log]
+#     return filtered_data
 
-def count_logs_by_level(logs: list) -> dict:
-    result = {}
-    for line in logs:
-        [date, time, log, *other] =  line.split(' ')
-        if result.get(log)  :
-            result[log] = result[log] + 1
-        else:
-            result[log] = 1
-    return result
+# def count_logs_by_level(logs: list) -> dict:
+#     result = {}
+#     for line in logs:
+#         [date, time, log, *other] =  line.split(' ')
+#         if result.get(log)  :
+#             result[log] = result[log] + 1
+#         else:
+#             result[log] = 1
+#     return result
 
-def display_log_counts(counts: dict, details:str='ALL'):
-    data = []
-    for k,v in counts.items():
-        data.append([k,v])
+# def display_log_counts(counts: dict, details:str='ALL'):
+#     data = []
+#     for k,v in counts.items():
+#         data.append([k,v])
 
-    headers = ['Log level', 'Count']
-    print(tabulate(data, headers, tablefmt='grid'))
+#     headers = ['Log level', 'Count']
+#     print(tabulate(data, headers, tablefmt='grid'))
 
-    if details != 'ALL':
-        details_logs = filter_logs_by_level(data_array, details)
-        print(f'Details for level {details}')
-        for log in details_logs:
-            print(log)
+#     if details != 'ALL':
+#         details_logs = filter_logs_by_level(data_array, details)
+#         print(f'Details for level {details}')
+#         for log in details_logs:
+#             print(log)
 
 
 
-data_array = load_logs(args[1])
-count_logs = count_logs_by_level(data_array)
-display_log_counts(counts=count_logs, details=args[2] if len(args) >= 3 else 'ALL' )
+# data_array = load_logs(args[1])
+# count_logs = count_logs_by_level(data_array)
+# display_log_counts(counts=count_logs, details=args[2] if len(args) >= 3 else 'ALL' )
+
+#! Exercise 3
